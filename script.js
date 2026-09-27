@@ -16,7 +16,7 @@ play.addEventListener('click', () => {
 
 audio.addEventListener('timeupdate', () => {
     progress.value = (audio.currentTime / audio.duration) * 100;
-})
+});
 
 progress.addEventListener('input', () => {
     audio.currentTime = (progress.value / 100) * audio.duration;

@@ -1,5 +1,8 @@
 const uploadBtn = document.querySelector('.upload-btn');
 const fileInput = document.getElementById('file-input');
+let songs = [];
+let currentIndex = 0;
+
 
 uploadBtn.addEventListener('click', () => {
     fileInput.click();    
@@ -10,10 +13,12 @@ const files = [...fileInput.files];
 
 fileInput.addEventListener('change', () => {
     const files = [...fileInput.files];
+    console.log(files);
     const playlist = document.getElementById('playlist');
 
 
     files.forEach((file) => {
+        songs.push(file);
         const songName = file.name.replace('.mp3', '');
         const displayName = songName.length > 25 ? songName.slice(0, 25) + '...' : songName;
 
@@ -29,6 +34,11 @@ fileInput.addEventListener('change', () => {
         `;
         
         playlist.appendChild(li);
-    })
-});
+        
+        li.addEventListener('click', () => {
+            currentIndex = songs.indexOf(file);
+            playSong(file);
+        });
 
+    });
+});

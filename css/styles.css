@@ -237,6 +237,36 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
+.controls button {
+    position: relative;
+}
+
+.controls button::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: beige;
+    color: #121212;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.controls button:hover::after {
+    opacity: 1;
+}
+
+.active svg {
+    color: #c8917a;
+}
+
 .volume {
     display: flex;
     width: 50%;

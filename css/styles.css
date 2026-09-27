@@ -78,6 +78,7 @@ body {
     background-color: #000;
     padding: 7px 5px;
     display: flex;
+    align-items: center;
     gap: 10px;
     border-radius: 10px;
     cursor: pointer;
@@ -101,6 +102,7 @@ body {
 .playlist li span img {
     width: 100%;
     border-radius: 8px;
+    pointer-events: none;
 }
 
 .playlist li span h3 {
@@ -137,49 +139,50 @@ body {
     justify-content: center;
     gap: 24px;
     padding: 40px;
-    border: 2px solid white;
 }
 
 .cover {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
-    animation: vinyl 10s linear infinite;
-}
-
-@keyframes vinyl {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 .cover img {
     width: 100%;
-    border-radius: 50%;
+    border-radius: 10px;
+    pointer-events: none;
 }
 
 .song-info {
     font-family: 'Segoe UI', sans-serif;
 }
 
-.song-info .song-artist {
-    font-size: 50px;
-    display: flex;
-    gap: 8px;
+#song-title {
+    margin-bottom: 10px;
 }
 
-.song-title {
-    margin-bottom: 10px;
+#song-artist {
+    font-size: 12px;
+    display: flex;
+    gap: 8px;
+    color: #888;
+    align-items: center;
+}
+
+.progress-bar {
+    width: 80%;
+}
+
+.time {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
 }
 
 #seek-bar {
     width: 100%;
     accent-color: #c8917a;
     cursor: pointer;
-    margin: 20px 0 0;
     appearance: none;
     height: 4px;
     background: #777;
@@ -195,11 +198,11 @@ body {
     margin-top: 30px;
 }
 
-.controls button {
+.controls #play-btn {
     border: none;
     background: #f0f0f0;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     color: black;
     cursor: pointer;
@@ -212,6 +215,46 @@ body {
     outline: none;
 }
 
+.controls button:not(#play-btn) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #f0f0f0;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:not(#play-btn):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.controls button:not(#play-btn):active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.volume {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+#volume-bar {
+    appearance: none;
+    height: 4px;
+    border-radius: 10px;
+    background: #777;
+    outline: none;
+    cursor: pointer;
+    accent-color: #c8917a;
+    width: 100%;
+}
 .controls button:active {
     background: white;
 }

@@ -54,6 +54,7 @@ body {
     font-weight: 600;
     box-shadow: 0 2px 8px #151618;
     cursor: pointer;
+    outline: none;
 }
 
 .playlist {
@@ -220,6 +221,7 @@ body {
     align-items: center;
     justify-content: center;
     background: transparent;
+    position: relative;
     color: #f0f0f0;
     border: none;
     width: 50px;
@@ -235,10 +237,6 @@ body {
 
 .controls button:not(#play-btn):active {
     background-color: rgba(255, 255, 255, 0.3);
-}
-
-.controls button {
-    position: relative;
 }
 
 .controls button::after {
@@ -265,6 +263,10 @@ body {
 
 .active svg {
     color: #c8917a;
+}
+
+.repeat-off {
+    color: #888;
 }
 
 .volume {

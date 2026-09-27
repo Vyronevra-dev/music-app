@@ -34,7 +34,7 @@ fileInput.addEventListener('change', () => {
         `;
         
         playlist.appendChild(li);
-        
+
         li.addEventListener('click', () => {
             currentIndex = songs.indexOf(file);
             playSong(file);

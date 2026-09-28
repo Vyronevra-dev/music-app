@@ -25,10 +25,21 @@ function playSong(file) {
         const title = tag.tags.title || file.name.replace('.mp3', '');
         songTitle.textContent = title;
         songArtist.textContent = artist;
+        const coverArt = document.getElementById('cover-art');
+        const picture = tag.tags.picture;
+
+        if (picture) {
+        const blob = new Blob([new Uint8Array(picture.data)], { type: picture.format });
+        const url = URL.createObjectURL(blob);
+        coverArt.src = url;
+        } else {
+            coverArt.src = 'assets/SLEEK_SILVER_MUSIC_NOTE';
+        }
     },
     onError: function() {
         songTitle.textContent = file.name.replace('.mp3', '');
         songArtist.textContent = 'Unknown Artist';
+        coverArt.src = 'assets/SLEEK_SILVER_MUSIC_NOTE';
     }
     });
 };

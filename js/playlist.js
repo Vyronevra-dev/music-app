@@ -25,7 +25,7 @@ fileInput.addEventListener('change', () => {
         const li = document.createElement('li');
         li.innerHTML = `
                     <span>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcVpp4fnbgukvB6Ll-6LekWefbMe4ApPzepTfIPtEqbg&s=10">
+                        <img src="assets/SLEEK_SILVER_MUSIC_NOTE" onerror="this.src='assets/SLEEK_SILVER_MUSIC_NOTE'"/>
                     </span>
                     <span>
                         <h3>${displayName} <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis-vertical preview-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></h3>
@@ -34,6 +34,20 @@ fileInput.addEventListener('change', () => {
         `;
         
         playlist.appendChild(li);
+
+        jsmediatags.read(file, {
+            onSuccess: function(tag) {
+                const picture = tag.tags.picture;
+                const img = li.querySelector('img');
+
+                if (picture) {
+                    const blob = new Blob([new Uint8Array(picture.data)], { type: picture.format });
+                    img.src = URL.createObjectURL(blob);
+                }
+            },
+            onError: function() {
+            }
+        });
 
         li.addEventListener('click', () => {
             currentIndex = songs.indexOf(file);

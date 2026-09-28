@@ -30,7 +30,7 @@ body {
 }
 
 .sidebar-header {
-    background-color: #33353b;
+    background-color: rgba(255, 255, 255, 0.15);
     display: flex;
     justify-content: space-between;
     padding: 15px 20px;
@@ -38,6 +38,7 @@ body {
     align-items: center;
     position: fixed;
     width: 28%;
+    backdrop-filter: blur(100px);
 }
 
 .sidebar-header h1 {
@@ -70,7 +71,6 @@ body {
 .playlist h2 {
     font-family: 'DM Sans', sans-serif;
     font-weight: 500;
-    border-bottom: 2px solid beige;
     padding-bottom: 10px;
 }
 
@@ -281,7 +281,7 @@ body {
     appearance: none;
     height: 4px;
     border-radius: 10px;
-    background: #777;
+    background: #777777;
     outline: none;
     cursor: pointer;
     accent-color: #c8917a;
@@ -291,3 +291,67 @@ body {
     background: white;
 }
 
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50%;
+    }
+    
+    .sidebar-header {
+        width: 50%;
+    }
+
+    .main {
+        width: 50%;
+    }
+
+    .controls {
+        width: 100%;
+        gap: 20px;
+        justify-content: space-between;
+    }
+
+    .volume {
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    .app {
+        flex-direction: column-reverse;
+        height: fit-content;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .sidebar-header {
+        width: 100%;
+        top: 0;
+    }
+
+    .main {
+        width: 100%;
+        padding-top: 100px;
+    }
+}
+
+@media (max-width: 400px) {
+    .playlist {
+        margin-top: 50px;
+    }
+
+    .main {
+        padding: 100px 5px 30px;
+
+    }
+
+    .progress-bar {
+        width: 90%;
+    }
+
+    .controls button::after {
+        background-color: none;
+    }
+
+}

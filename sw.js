@@ -6,8 +6,10 @@ const ASSETS = [
     '/js/playlist.js',
     '/js/player.js',
     '/js/app.js',
-    '/assets/icons/icon-192.png',
-    '/assets/icons/icon-512.png',
+    '/assets/icons/Music-logo-with-sound-waves.png',
+    '/assets/icons/Music-logo-with-sound-waves2.png',
+    '/assets/SLEEK_SILVER_MUSIC_NOTE.png',
+    'https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js',
 ];
 
 self.addEventListener('install', (e) => {

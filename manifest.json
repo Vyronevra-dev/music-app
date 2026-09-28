@@ -7,14 +7,28 @@
     "theme_color": "#33353b",
     "icons": [
         {
-            "src": "assets/icons/Music-logo-with-sound-waves",
+            "src": "assets/icons/Music-logo-with-sound-waves.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "assets/icons/Music-logo-with-sound-waves2",
+            "src": "assets/icons/Music-logo-with-sound-waves2.png",
             "sizes": "512x512",
             "type": "image/png"
         }
-    ]
+    ],
+    "screenshots": [
+    {
+        "src": "assets/screenshot-wide.png",
+        "sizes": "1896x874",
+        "type": "image/png",
+        "form_factor": "wide"
+    },
+    {
+        "src": "assets/screenshot-mobile.png",
+        "sizes": "538x748",
+        "type": "image/png",
+        "form_factor": "narrow"
+    }
+]
 }

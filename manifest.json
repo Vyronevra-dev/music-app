@@ -3,8 +3,8 @@
     "short_name": "Meloflix",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#121212",
-    "theme_color": "#33353b",
+    "background_color": "#0f0c23",
+    "theme_color": "#7b43db",
     "icons": [
         {
             "src": "assets/icons/Music-logo-with-sound-waves.png",

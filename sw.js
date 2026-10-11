@@ -1,4 +1,4 @@
-const CACHE_NAME = 'meloflix-v1';
+const CACHE_NAME = 'meloflix-v2';
 const ASSETS = [
     '/',
     '/index.html',

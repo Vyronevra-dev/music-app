@@ -5,14 +5,14 @@
 
 /* ===== Design Tokens ===== */
 :root {
-  /* Background gradient */
-  --bg-gradient: linear-gradient(160deg, #F4F4F4 0%, #FFFFFF 100%);
+  /* Background — soft muted, NOT pure white */
+  --bg-gradient: linear-gradient(160deg, #EDE9E4 0%, #E4DED7 100%);
 
-  /* Glassmorphism surfaces */
-  --surface-bg: rgba(255, 255, 255, 0.5);
-  --surface-border: rgba(244, 166, 160, 0.25);
-  --surface-hover: rgba(255, 255, 255, 0.7);
-  --surface-deep: rgba(255, 255, 255, 0.85);
+  /* Glassmorphism surfaces — clean white */
+  --surface-bg: rgba(255, 255, 255, 0.92);
+  --surface-border: rgba(0, 0, 0, 0.07);
+  --surface-hover: rgba(255, 255, 255, 0.98);
+  --surface-deep: rgba(255, 255, 255, 1);
 
   /* Accent / primary action */
   --accent: #F4A6A0;
@@ -80,7 +80,7 @@ body {
 }
 
 .sidebar-header {
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--surface-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--surface-border);
@@ -257,6 +257,41 @@ body {
   justify-content: center;
   gap: 32px;
   padding: 40px;
+  position: relative;
+}
+
+/* Settings button pinned to top-right of the main player */
+.main .settings-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--surface-border);
+  color: var(--text-secondary);
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.main .settings-btn:hover {
+  background: var(--surface-hover);
+  color: var(--accent-light);
+  border-color: var(--accent);
+  box-shadow: var(--glow-accent);
+}
+
+.main .settings-btn:active {
+  transform: scale(0.92);
 }
 
 /* ===== Cover Art ===== */
@@ -491,7 +526,8 @@ body {
 }
 
 /* Tooltip */
-.controls button:not(#play-btn)::after {
+.controls button:not(#play-btn)::after,
+.main .settings-btn::after {
   content: attr(data-title);
   position: absolute;
   top: 100%;
@@ -513,7 +549,8 @@ body {
   z-index: 100;
 }
 
-.controls button:not(#play-btn):hover::after {
+.controls button:not(#play-btn):hover::after,
+.main .settings-btn:hover::after {
   opacity: 1;
   top: calc(100% + 12px);
 }
@@ -576,7 +613,7 @@ body {
   align-items: center;
   padding: 20px 24px 16px;
   border-bottom: 1px solid var(--surface-border);
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--surface-bg);
 }
 
 .popup-header h3 {
@@ -696,7 +733,7 @@ body {
 .popup-footer {
   padding: 16px 24px;
   border-top: 1px solid var(--surface-border);
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--surface-bg);
   text-align: center;
 }
 

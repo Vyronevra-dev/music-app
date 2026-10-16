@@ -140,6 +140,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
 }
 
 .playlist h2 {
@@ -770,22 +774,24 @@ body {
     flex-direction: column;
     padding: 10px;
     gap: 12px;
+    max-height: 100vh;
   }
 
   .sidebar {
     width: 100%;
-    max-width: 400px;
+    max-width: none;
     height: calc(100vh - 24px);
   }
 
   .sidebar-header {
     position: sticky;
     top: 0;
+    z-index: 10;
   }
 
   .main {
-    padding: 32px 24px;
-    gap: 24px;
+    padding: 28px 20px;
+    gap: 20px;
   }
 
   .cover {
@@ -816,14 +822,37 @@ body {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
+  .app {
+    padding: 8px;
+    gap: 10px;
+  }
+
   .sidebar {
-    height: auto;
-    max-height: 40vh;
+    height: calc(100vh - 16px);
+    border-radius: 16px;
+  }
+
+  .sidebar-header {
+    padding: 16px 20px;
+  }
+
+  .sidebar-header h1 {
+    font-size: 20px;
+  }
+
+  .upload-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .playlist {
+    padding: 16px 16px 12px;
   }
 
   .main {
-    padding: 24px 12px;
+    padding: 24px 16px;
+    gap: 18px;
   }
 
   .cover {
@@ -831,19 +860,26 @@ body {
     height: 170px;
   }
 
-  .controls {
-    gap: 12px;
-  }
-
   #song-title {
-    font-size: 18px;
+    font-size: 20px;
+    max-width: 100%;
   }
 
   .progress-bar {
     width: 100%;
   }
 
-  .controls button:not(#play-btn)::after {
-    background: rgba(255, 255, 255, 0.3);
+  .controls {
+    gap: 14px;
+  }
+
+  .controls button:not(#play-btn) {
+    width: 40px;
+    height: 40px;
+  }
+
+  #play-btn {
+    width: 56px;
+    height: 56px;
   }
 }
